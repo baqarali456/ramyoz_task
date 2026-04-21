@@ -59,7 +59,8 @@ function TaskCard({ _id, title, description, createdAt, createdBy }) {
             className="btn btn-sm mx-2 btn-outline-danger"
             disabled={loading}
           >
-            {loading ? `Deleting... <i className="fa-solid fa-circle-notch fa-spin"></i>` : "Delete"}
+            {loading ? `Deleting` : "Delete"}
+             {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
           </button>
         )}
       </div>

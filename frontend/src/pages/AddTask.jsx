@@ -78,7 +78,8 @@ const [loading, setLoading] = useState(false);
                   />
                 </div>
                 <button type="submit" className=" btn btn-primary mx-auto" disabled={loading}>
-                  {loading ? `Adding...${<i className="fa-solid fa-circle-notch fa-spin"></i>}` : "Add Task"}
+                  {loading ? `Adding` : "Add Task"}
+                  {loading && <i className="fa-solid fa-circle-notch fa-spin"></i>}
                 </button>
               </form>
               {
