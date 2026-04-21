@@ -89,7 +89,7 @@ function EditTask() {
                 {/* Buttons */}
                 <div className="d-flex justify-content-between">
                   <button disabled={loading} type="submit" className="btn btn-primary">
-                    {loading ? `Updating <i className="fa-solid fa-circle-notch fa-spin"></i>`:"Update Task"}
+                    {loading ? `Updating ${<i className="fa-solid fa-circle-notch fa-spin"></i>}`:"Update Task"}
                   </button>
                 </div>
               </form>
