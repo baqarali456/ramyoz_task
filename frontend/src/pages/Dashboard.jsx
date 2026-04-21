@@ -14,7 +14,7 @@ function Dashboard() {
   const navigate = useNavigate();
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/v1/task/getallTasks", {
+      .get("https://ramyoz-task.onrender.com/api/v1/task/getallTasks", {
         withCredentials: true,
       })
       .then((response) => {

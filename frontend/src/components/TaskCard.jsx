@@ -26,7 +26,7 @@ function TaskCard(
      setLoading(true);
      setError("");
     try {
-      await axios.delete(`http://localhost:8000/api/v1/task/deleteTask/${_id}`,{withCredentials:true})
+      await axios.delete(`https://ramyoz-task.onrender.com/api/v1/task/deleteTask/${_id}`,{withCredentials:true})
 
       dispatch(handleTasks(tasks.filter(task=>task._id !== _id)))
     } catch (err) {

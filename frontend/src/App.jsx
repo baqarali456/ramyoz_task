@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
   
       axios
-        .get("http://localhost:8000/api/v1/user/getCurrentUser", {
+        .get("https://ramyoz-task.onrender.com/api/v1/user/getCurrentUser", {
           withCredentials: true,
         })
         .then((response) => {

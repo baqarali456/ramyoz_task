@@ -33,7 +33,7 @@ function Signup() {
       setLoading(true);
 
       await axios.post(
-        "http://localhost:8000/api/v1/user/register",
+        " https://ramyoz-task.onrender.com/api/v1/user/register",
         formData,
         {withCredentials:true}
       );

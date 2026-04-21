@@ -38,13 +38,13 @@ function Navbar() {
 
   const navigate = useNavigate()
 
-  
+
 
   const dispatch = useDispatch()
 
   const handleLogout = async() =>{
     try {
-      await axios.post('http://localhost:8000/api/v1/user/logout',{},{withCredentials:true})
+      await axios.post(' https://ramyoz-task.onrender.com/api/v1/user/logout',{},{withCredentials:true})
       dispatch(authLogout());
       navigate('/login')
     } catch (error) {

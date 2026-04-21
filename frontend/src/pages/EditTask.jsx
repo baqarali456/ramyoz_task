@@ -26,7 +26,7 @@ function EditTask() {
     setLoading(true);
     try {
       await axios.patch(
-        `http://localhost:8000/api/v1/task/updateTask/${taskId}`,
+        ` https://ramyoz-task.onrender.com/api/v1/task/updateTask/${taskId}`,
         formData,
         { withCredentials: true },
       );
