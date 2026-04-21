@@ -9,7 +9,7 @@ taskRouter.use(verifyJWT);
 taskRouter.route('/createTask').post(createTaskByUser)
 taskRouter.route('/updateTask/:taskId').patch(updateTaskByUser)
 taskRouter.route('/deleteTask/:taskId').delete(deleteTaskByUser)
-taskRouter.route('/getallTasks').get(getAllTaskOfUser)
+taskRouter.route('/getallTasks').get(getAllTasks)
 
 export {
     taskRouter
