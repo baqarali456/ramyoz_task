@@ -43,7 +43,7 @@ function Dashboard() {
 {/*Loading */}
       {loading && (
         <div className="alert alert-info text-center">
-          Loading tasks...
+          Loading tasks <i className="fa-solid fa-circle-notch fa-spin"></i>
         </div>
       )}
 

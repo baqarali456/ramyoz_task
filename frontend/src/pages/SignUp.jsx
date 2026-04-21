@@ -108,7 +108,7 @@ function Signup() {
               className="btn btn-success w-100"
               disabled={loading}
             >
-              {loading ? "Creating account..." : "Sign Up"}
+              {loading ? `Creating account...<i className="fa-solid fa-circle-notch fa-spin"></i>` : "Sign Up"}
             </button>
           </form>
 
