@@ -1,0 +1,117 @@
+import { asyncHandler } from "../utils/AsyncHandler.js";
+import { ApiError } from "../utils/ApiError.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
+import { Task } from "../models/task.model.js";
+import { isValidObjectId } from "mongoose";
+
+const createTaskByUser = asyncHandler(async (req, res) => {
+    const { title, description } = req.body;
+
+    if (!title?.trim() || !description?.trim()) {
+        throw new ApiError(400, 'all fields are required')
+    }
+
+    const task = await Task.create({
+        title,
+        description,
+        createdBy: req.user._id
+    })
+
+    return res
+        .status(201)
+        .json(
+            new ApiResponse(task,
+                'task create successfully',
+                200)
+        )
+})
+
+const updateTaskByUser = asyncHandler(async (req, res) => {
+    const { title, description } = req.body;
+
+    const { taskId } = req.params;
+
+    if (!isValidObjectId(taskId)) {
+        throw new ApiError(400, 'taskId is not valid')
+    }
+
+    if (!title?.trim() || !description?.trim()) {
+        throw new ApiError(400, 'all fields are required')
+    }
+
+
+
+
+
+    const task = await Task.findOneAndUpdate(
+        {_id:taskId,createdBy:req.user._id},
+        {
+            $set: {
+                title,
+                description,
+            }
+        },
+        {
+            new: true
+        }
+    )
+
+
+    if (!task) {
+        throw new ApiError(404, 'task not found')
+    }
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(task, 'update task successfully', 200)
+        )
+
+})
+
+const deleteTaskByUser = asyncHandler(async (req, res) => {
+    const { taskId } = req.params;
+
+    if (!isValidObjectId(taskId)) {
+        throw new ApiError(400, 'taskId is not valid')
+    }
+
+    
+
+    
+    
+    
+   const task = await Task.deleteOne({ _id: taskId,createdBy:req.user._id })
+    
+    if (!task) {
+        throw new ApiError(404, 'task not found')
+    }
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(null, 'user delete task  successfully', 200)
+        )
+
+
+})
+
+
+const getAllTaskOfUser = asyncHandler(async (req, res) => {
+    const allTasks = await Task.find({ createdBy: req.user?._id });
+
+    return res
+        .status(200)
+        .json(
+            new ApiResponse(allTasks, 'user get successfully all tasks', 200)
+        )
+
+})
+
+
+
+
+export {
+    createTaskByUser,
+    deleteTaskByUser,
+    updateTaskByUser,
+    getAllTaskOfUser,
+}
