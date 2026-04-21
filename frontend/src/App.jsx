@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {loading ? <h1 className="text-center mt-3">Loading...</h1> : null}
+      {loading ? <h1 className="text-center mt-3"><i className="fa-solid fa-circle-notch fa-spin"></i></h1> : null}
       {error ? (
         <h1 className=" text-center text-danger mt-3">{error}</h1>
       ) : null}
