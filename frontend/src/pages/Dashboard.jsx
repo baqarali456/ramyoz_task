@@ -48,7 +48,7 @@ function Dashboard() {
       )}
 
       {/* Error */}
-      {error && !loading && (
+      {error  && (
         <div className="alert alert-danger text-center">
           {error}
         </div>
