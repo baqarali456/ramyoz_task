@@ -95,8 +95,8 @@ const deleteTaskByUser = asyncHandler(async (req, res) => {
 })
 
 
-const getAllTaskOfUser = asyncHandler(async (req, res) => {
-    const allTasks = await Task.find({ createdBy: req.user?._id });
+const getAllTasks = asyncHandler(async (req, res) => {
+    const allTasks = await Task.find({  });
 
     return res
         .status(200)
@@ -113,5 +113,5 @@ export {
     createTaskByUser,
     deleteTaskByUser,
     updateTaskByUser,
-    getAllTaskOfUser,
+    getAllTasks,
 }
